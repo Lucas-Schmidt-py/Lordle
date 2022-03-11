@@ -1,3 +1,4 @@
 # Lordle
 Wordle with League Characters
-SISI
+
+Fun Projekt
