@@ -2,4 +2,4 @@
 Wordle with League Characters
 
 Fun Projekt 
-by Lucas Schmidt, Boa Minh Frank Phan
+by Lucas Schmidt, Bao Minh Frank Phan
