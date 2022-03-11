@@ -1,0 +1,6 @@
+﻿Projekt LORDLE
+
+11.3.22:
+Was mir gemacht haben:        
+-League Champs anschauen
+-League Champs nach 5 gefiltert
