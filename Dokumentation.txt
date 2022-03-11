@@ -4,14 +4,15 @@ geplantes: Backend: Python, Frontend: Javascript
 
 11.3.22:
 Was mir gemacht haben:        
--League Champs anschauen
--Filter geschrieben
--League Champs nach 5 gefiltert
--Github Repository erstellt
-    Notes:
+    -League Champs anschauen
+    -Filter geschrieben
+    -League Champs nach 5 gefiltert
+    -Github Repository erstellt
+
+Notes:
     -bissl wenig Champs mit 5 Buchstaben
 
-    Aufgaben zum 14.3:
+Aufgaben zum 14.3:
     Minh: Python anschauen, Javascript ein bissl, Github
     Lucas: Javascript, AWS 
     optional: schauen, wie Python Javascript zusammen funktioniert?
