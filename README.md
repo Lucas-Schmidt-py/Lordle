@@ -1,2 +1,3 @@
 # Lordle
-Wordle witch League Character
+Wordle with League Characters
+SISI
