@@ -1,9 +1,14 @@
 ﻿Projekt LORDLE
 
-geplantes: Backend: Python, Frontend: Javascript
+geplantes: (Backend: Python), Frontend: Javascript
+            -League Champs (aber Leerzeichen wird nicht gewertet mit unterer und oberer Grenze)
+            -Idee: Rahmen je nachdem wie gut man abschneidet
 
+
+bonus:      -Cookies (geht nicht in git)
+            
 11.3.22:
-    Was mir gemacht haben:        
+    Was wir gemacht haben:        
         -League Champs anschauen
         -Filter geschrieben
         -League Champs nach 5 gefiltert
@@ -17,3 +22,16 @@ geplantes: Backend: Python, Frontend: Javascript
         Lucas: Javascript, AWS 
         optional: schauen, wie Python Javascript zusammen funktioniert?
 
+14.3.22 (Pi Day Yeah):
+    Was wir gemacht haben:
+        -Design (beta)
+        -Bilder
+        -Farben (siehe Lesezeichen in Browser)
+        -Idee fuer die Spiele (siehe Plan)
+        -beta buttonlayout (js,css,html)
+    Notes:
+        - vllt. doch kein Python backend
+
+    Aufgaben zum 18.3:
+        -Minh: HTML, CSS, Javascript, (vllt. fastAPI,  Python <-> Javascript)
+        -Lucas: Beta-Layout, Jango/Flask(?)
