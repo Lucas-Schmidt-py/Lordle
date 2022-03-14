@@ -1,16 +1,16 @@
-function firstWord (letter) {
-    document.getElementById('Word1').innerHTML += letter;
+function WordAdd (letter,souce) {
+    document.getElementById(souce).innerHTML += letter;
 }
 
 function WordInput (letter){
-    firstWord(letter);
+    WordAdd(letter,'Word1');
 }
 
 function WordDes(){
-    firstDel();
+    WordDel('Word1');
 }
 
-function firstDel(){
-    let str = (document.getElementById('Word1').innerHTML).slice(0, -1);
+function WordDel(souce){
+    let str = (document.getElementById(souce).innerHTML).slice(0, -1);
     document.getElementById('Word1').innerHTML = str
 }
