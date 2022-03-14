@@ -1,0 +1,64 @@
+body * {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.keyboard-base {
+    position: absolute;
+    top: 82%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 10px;
+    display: grid;
+    grid-template-columns: repeat(25, 20px);
+    grid-template-rows: repeat(5, 60px);
+    grid-gap: 5px;
+}
+
+
+.key {
+    background-color: rgb(201, 201, 201);
+    border-radius: 5px;
+    grid-column: span 2;
+    font-size: 20px;
+    text-align: center;
+    padding-top: 17px;
+}
+
+#Word1{
+    text-align: center;
+    margin-top: 30vh;
+    font-size: 50px;
+    letter-spacing: 50px;
+}
+
+.Spacer{
+    grid-column: span 2;
+}
+
+.Spacer2{
+    grid-column: span 3;
+}
+
+.Spacer3{
+    grid-column: span 5;
+}
+
+.key:hover {
+  border: 1px solid #eeeeee;
+  background-color: rgb(216, 216, 216);
+  
+}
+
+.delete {
+    grid-column: span 3;
+}
+
+.command {
+    grid-column: span 3;
+    font-size: 17px;
+
+}
+
+.space {
+    grid-column: span 14;
+}

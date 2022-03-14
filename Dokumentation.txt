@@ -29,6 +29,7 @@ bonus:      -Cookies (geht nicht in git)
         -Farben (siehe Lesezeichen in Browser)
         -Idee fuer die Spiele (siehe Plan)
         -beta buttonlayout (js,css,html)
+        
     Notes:
         - vllt. doch kein Python backend
 
