@@ -3,7 +3,7 @@ y = int(input("Anazhl: "))
 x += ".txt"
 
 datei = open(x,'r')
-datei2 = open("Output.txt",'w')
+datei2 = open("Champs_"+str(y)+"_letters",'w')
 
 with open(x,'r') as file:
     list = []
