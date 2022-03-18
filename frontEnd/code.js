@@ -1,3 +1,5 @@
+
+
 function WordAdd (letter,souce) {
     document.getElementById(souce).innerHTML += letter;
 }

@@ -36,3 +36,18 @@ bonus:      -Cookies (geht nicht in git)
     Aufgaben zum 18.3:
         -Minh: HTML, CSS, Javascript, (vllt. fastAPI,  Python <-> Javascript)
         -Lucas: Beta-Layout, Django/Flask(?)
+
+18.3.22:
+ Was wir gemnacht haben:
+    -HTML geschrieben:
+        -Header inklusive ELemente
+        -platzhalter custom elemente für gameboard
+        -keyboard mockup
+    
+    Notes:
+        -noch keine Keyboardeingabe
+    
+    Aufgaben zum 21.3:
+        -Custom Elemente anschauen
+        -Minh: Board in CSS
+        -Lucas: Header in CSS, Einschiebefenster
