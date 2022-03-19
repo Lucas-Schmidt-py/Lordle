@@ -1,4 +1,4 @@
-class game_row extends HTMLElement{
+class game_row extends HTMLDivElement{
     constructor(){
         super();
     }
