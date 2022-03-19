@@ -5,19 +5,33 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lordle</title>
-    <link rel="stylesheet" href="frontEnd/style.css"> 
+    <link rel="stylesheet" href="frontEnd/Keyboard.css"> 
+    <link rel="stylesheet" href="frontEnd/Header.css"> 
+    <link href="frontEnd/sytles.html" rel="import" />
     <script src="frontEnd/code.js"></script>
     <script src="frontEnd/newElements.js"></script>
+
 </head>
 <body>
+
 <header>
-    <span><img src="srcs/assets/LoL_icon.svg.png" alt="League of Legends Logo"></span>
-    <span>League of Legends</span>
-    <h1>Lordle</h1>
+    <span>
+        <img id="League-logo" src="srcs/assets/LoL_icon.svg.png" alt="League of Legends Logo">
+    </span>
+
+    <img id="League-Title" src="srcs/assets/logo-1200-589b3ef693ce8a750fa4b4704f1e61f2.png" alt="League of Legends Title">
+
+    <h1 id="Title">Lordle</h1>
+
     <!--WIP POPUPT FÜR REGELN-->
-    <button></button>
+    <button id="Help">
+        Help
+    </button>
+
 </header>
+
 <hr>
+
 <div id="board">
     <game-row>
         <game-tile>aa</game-tile>
