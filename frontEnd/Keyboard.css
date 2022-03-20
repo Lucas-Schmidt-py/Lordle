@@ -6,7 +6,7 @@ body * {
 .keyboard-base {
     position: absolute;
     top: 82%;
-    left: 50%;
+    left: 50.5%;
     transform: translate(-50%, -50%);
     border-radius: 10px;
     display: grid;
@@ -47,8 +47,6 @@ body * {
   border: 1px solid #eeeeee;
   background-color: rgb(216, 216, 216);  
 }
-
-html {background-color: rgb(37, 37, 37);}
 
 .delete {
     grid-column: span 3;
