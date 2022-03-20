@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="frontEnd/Keyboard.css"> 
     <link rel="stylesheet" href="frontEnd/Header.css"> 
     <link rel="stylesheet" href="frontEnd/gameboard.css">
+    <link rel="stylesheet" href="frontEnd/Help.css">
     <link href="frontEnd/sytles.html" rel="import" />
     <link rel="icon" href="srcs/assets/LoL_icon.svg.png">
     <script src="frontEnd/code.js"></script>
@@ -15,6 +16,13 @@
 
 </head>
 <body>
+
+<div id="overlay">
+    <div id="help_base">
+        <div class="help_text">Hallo</div>
+        <button id="help_close" onclick="off()">X</button>
+    </div>
+</div> 
 
 <header>
     <span>
@@ -26,7 +34,7 @@
     <h1 id="Title">Lordle</h1>
 
     <!--WIP POPUPT FÜR REGELN-->
-    <button id="Help">
+    <button id="Help" onclick="on()">
         Help
     </button>
 
