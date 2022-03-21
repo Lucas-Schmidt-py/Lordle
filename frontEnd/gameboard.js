@@ -1,10 +1,8 @@
-let word1 = false
-let word2 = false
-let word3 = false
-let word4 = false
-let word5 = false
-let word6 = false
-let current_word= ""
+let row = 0;
+let collum = 0;
+let current_word= "";
+let word_lenght = 5;
+let row_lenght = 6;
 
 function WordInput (letter){
     WordAdd(letter);
@@ -15,11 +13,35 @@ function WordDes(){
 }
 
 function WordAdd (letter){
-    current_word += letter;
-    document.getElementById('test').innerHTML = current_word;
+    if(letter==='ENTER'){      
+        //if(in_list(current_word)){
+            //trigger color change and animation  
+            collum = 0;
+            row += 1;
+            current_word= "";        
+
+            if(row===row_lenght){
+                //result screen
+            }
+        //}
+    }else{
+        if(collum < word_lenght){
+            if(letter==='SPACE'){
+                letter='/'
+            }
+            current_word += letter;
+            let all_tiles = document.querySelectorAll('game-tile');
+            all_tiles[row*word_lenght+collum].innerHTML = letter;
+            collum += 1;
+        }
+    }
 }
 
 function WordDel(){
-    current_word = current_word.slice(0, -1);
-    document.getElementById('test').innerHTML = current_word;
+    if(collum!==0){
+        collum -= 1;
+        current_word = current_word.slice(0, -1);
+        let all_tiles = document.querySelectorAll('game-tile');
+        all_tiles[row*word_lenght+collum].innerHTML = " ";        
+    }
 }
