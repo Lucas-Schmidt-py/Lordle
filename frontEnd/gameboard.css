@@ -20,3 +20,7 @@ game-tile{
     padding-top: 20%;
     background-color: white;
 }
+
+.invisible{
+    display: block;
+}

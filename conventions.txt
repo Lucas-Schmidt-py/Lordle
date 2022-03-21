@@ -1,5 +1,5 @@
 
-style:  -variablen 'brot-aufstrich'
+style:  -variablen 'brot_aufstrich'
         -Methode 'macheEssen()'     (erste Runde klammer auf gleicher Zeile und andere unten)
         -Klassen 'Besonderes_Buch'
         -Konstanten 'ICH_BIN_EINE_KONSTANTE'

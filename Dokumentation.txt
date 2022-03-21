@@ -15,10 +15,12 @@ Was ist noch zu machen:
     -Farben anpassen der Gameboards
     (wird wiederholt (Zeile++))
 
+    -Keyboard eingabe
+
     -Hurrah
 
 
-bonus:      -Cookies (geht nicht in git)
+bonus: -Cookies (geht nicht in git)
             
 11.3.22:
     Was wir gemacht haben:        

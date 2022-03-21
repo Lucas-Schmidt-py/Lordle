@@ -24,13 +24,6 @@ body * {
     padding-top: 21px;
 }
 
-#Word1{
-    text-align: center;
-    margin-top: 30vh;
-    font-size: 50px;
-    letter-spacing: 50px;
-}
-
 .Spacer{
     grid-column: span 2;
 }
