@@ -1,6 +1,5 @@
 #board{
     padding-top: 6vh;
-    margin-bottom: 60;
     position: relative;
     justify-content: center;
     display: grid;
@@ -19,4 +18,5 @@ game-tile{
     border-radius: 2px;
     text-align: center;
     padding-top: 20%;
+    background-color: white;
 }

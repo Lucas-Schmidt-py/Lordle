@@ -1,6 +1,6 @@
 
 
-function WordAdd (letter,souce) {
+function WordAdd (letter,souce){
     document.getElementById(souce).innerHTML += letter;
 }
 
@@ -17,10 +17,10 @@ function WordDel(souce){
     document.getElementById('Word1').innerHTML = str
 }
 
-function on() {
+function on(){
     document.getElementById("overlay").style.display = "block";
-  }
+}
   
-  function off() {
+function off(){
     document.getElementById("overlay").style.display = "none";
-  } 
+} 

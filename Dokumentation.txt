@@ -4,6 +4,19 @@ geplantes: (Backend: Python), Frontend: Javascript
             -League Champs (aber Leerzeichen wird nicht gewertet mit unterer und oberer Grenze)
             -Idee: Rahmen je nachdem wie gut man abschneidet
 
+Was ist noch zu machen:
+    -Wort aussuchen(Liste mit Wörtern random geshuffled)
+
+    Loop:
+    -Ins Eingabefeld schreiben können (enter eingabe, gültig?)
+    -> String (eingegebenes Wort)
+    -Eingabewort mit Lösung vergleichen
+    -> String (buchstaben für vorhanden,richtig,nicht vorhanden)
+    -Farben anpassen der Gameboards
+    (wird wiederholt (Zeile++))
+
+    -Hurrah
+
 
 bonus:      -Cookies (geht nicht in git)
             
@@ -51,3 +64,19 @@ bonus:      -Cookies (geht nicht in git)
         -Custom Elemente anschauen
         -Minh: Board in CSS
         -Lucas: Header in CSS, Einschiebefenster
+
+21.3.22:
+    Was wir gemacht haben:
+        -
+    
+    Notes:
+        -Enter-Taste sticht heraus
+        -zu viele Schriftarten
+        -Farben stimmen noch nicht ganz
+        -Help-Button ändern
+
+        -vllt. aus help rausgehen durch Rausklicken
+
+    Aufgabe 25.3:
+        Lucas: Eingabefeld
+        Minh: Wort in Liste(geordnet) und farbstring 
