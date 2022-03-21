@@ -24,9 +24,8 @@
     top: 50vh;
   }
 
-  #help_cheese{
-    
-    animation:slide-in-top .5s cubic-bezier(.0,.0,.0,.0) both;
+  #help_cheese{    
+    animation:slide-in-top .4s cubic-bezier(.0,.0,.0,.0) both;
      }
 
   .help_text{
