@@ -5,13 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lordle</title>
-    <link rel="stylesheet" href="frontEnd/Keyboard.css"> 
-    <link rel="stylesheet" href="frontEnd/Header.css"> 
+    <link rel="stylesheet" href="frontEnd/keyboard.css"> 
+    <link rel="stylesheet" href="frontEnd/header.css"> 
     <link rel="stylesheet" href="frontEnd/gameboard.css">
-    <link rel="stylesheet" href="frontEnd/Help.css">
+    <link rel="stylesheet" href="frontEnd/help.css">
     <link href="frontEnd/sytles.html" rel="import" />
     <link rel="icon" href="srcs/assets/LoL_icon.svg.png">
-    <script src="frontEnd/code.js"></script>
+    <script src="frontEnd/help.js"></script>
     <script src="frontEnd/gameboard.js"></script>
     <script src="frontEnd/newElements.js"></script>
 
@@ -43,7 +43,6 @@
     <button id="Help" onclick="on()">
         Help
     </button>
-
 </header>
 
 <hr id="header-line">
@@ -86,44 +85,44 @@
         <game-tile></game-tile>
 </div>
 
-<div id="test">dfsdfsdef</div>
+<div id="test"></div>
 
 <div class="keyboard-base">
     <div class="Spacer"></div>
-    <div class="key" onclick="WordInput('Q')">Q</div>
-    <div class="key" onclick="WordInput('W')">W</div>
-    <div class="key" onclick="WordInput('E')">E</div>
-    <div class="key" onclick="WordInput('R')">R</div>
-    <div class="key" onclick="WordInput('T')">T</div>
-    <div class="key" onclick="WordInput('Y')">Y</div>
-    <div class="key" onclick="WordInput('U')">U</div>
-    <div class="key" onclick="WordInput('I')">I</div>
-    <div class="key" onclick="WordInput('O')">O</div>
-    <div class="key" onclick="WordInput('P')">P</div>
+    <div class="key" onclick="wordInput('Q')">Q</div>
+    <div class="key" onclick="wordInput('W')">W</div>
+    <div class="key" onclick="wordInput('E')">E</div>
+    <div class="key" onclick="wordInput('R')">R</div>
+    <div class="key" onclick="wordInput('T')">T</div>
+    <div class="key" onclick="wordInput('Y')">Y</div>
+    <div class="key" onclick="wordInput('U')">U</div>
+    <div class="key" onclick="wordInput('I')">I</div>
+    <div class="key" onclick="wordInput('O')">O</div>
+    <div class="key" onclick="wordInput('P')">P</div>
     <div class="Spacer"></div>
     <div class="Spacer2"></div>
-    <div class="key" onclick="WordInput('A')">A</div>
-    <div class="key" onclick="WordInput('S')">S</div>
-    <div class="key" onclick="WordInput('D')">D</div>
-    <div class="key" onclick="WordInput('F')">F</div>
-    <div class="key" onclick="WordInput('G')">G</div>
-    <div class="key" onclick="WordInput('H')">H</div>
-    <div class="key" onclick="WordInput('J')">J</div>
-    <div class="key" onclick="WordInput('K')">K</div>
-    <div class="key" onclick="WordInput('L')">L</div>
+    <div class="key" onclick="wordInput('A')">A</div>
+    <div class="key" onclick="wordInput('S')">S</div>
+    <div class="key" onclick="wordInput('D')">D</div>
+    <div class="key" onclick="wordInput('F')">F</div>
+    <div class="key" onclick="wordInput('G')">G</div>
+    <div class="key" onclick="wordInput('H')">H</div>
+    <div class="key" onclick="wordInput('J')">J</div>
+    <div class="key" onclick="wordInput('K')">K</div>
+    <div class="key" onclick="wordInput('L')">L</div>
     <div class="Spacer2"></div>
     <div class="Spacer"></div>        
-    <div class="key command" onclick="WordInput('ENTER')">ENTER</div>
-    <div class="key" onclick="WordInput('Z')">Z</div>
-    <div class="key" onclick="WordInput('X')">X</div>
-    <div class="key" onclick="WordInput('C')">C</div>
-    <div class="key" onclick="WordInput('V')">V</div>
-    <div class="key" onclick="WordInput('B')">B</div>
-    <div class="key" onclick="WordInput('N')">N</div>
-    <div class="key" onclick="WordInput('M')">M</div>
-    <div class="key delete" onclick="WordDes()">DEL</div>
+    <div class="key command" onclick="wordInput('ENTER')">ENTER</div>
+    <div class="key" onclick="wordInput('Z')">Z</div>
+    <div class="key" onclick="wordInput('X')">X</div>
+    <div class="key" onclick="wordInput('C')">C</div>
+    <div class="key" onclick="wordInput('V')">V</div>
+    <div class="key" onclick="wordInput('B')">B</div>
+    <div class="key" onclick="wordInput('N')">N</div>
+    <div class="key" onclick="wordInput('M')">M</div>
+    <div class="key delete" onclick="wordDes()">DEL</div>
     <div class="Spacer3"></div>  
-    <div class="key space" onclick="WordInput('SPACE')">SPACE</div>
+    <div class="key space" onclick="wordInput('SPACE')">SPACE</div>
 </div>
 
 

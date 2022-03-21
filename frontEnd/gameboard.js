@@ -4,15 +4,7 @@ let current_word= "";
 let word_lenght = 5;
 let row_lenght = 6;
 
-function WordInput (letter){
-    WordAdd(letter);
-}
-
-function WordDes(){
-    WordDel();
-}
-
-function WordAdd (letter){
+function wordInput (letter){
     if(letter==='ENTER'){      
         //if(in_list(current_word)){
             //trigger color change and animation  
@@ -25,7 +17,7 @@ function WordAdd (letter){
             }
         //}
     }else{
-        if(collum < word_lenght){
+        if(collum < word_lenght && row < row_lenght){
             if(letter==='SPACE'){
                 letter='/'
             }
@@ -35,9 +27,10 @@ function WordAdd (letter){
             collum += 1;
         }
     }
+    document.getElementById('test').innerHTML = current_word;
 }
 
-function WordDel(){
+function wordDes(){
     if(collum!==0){
         collum -= 1;
         current_word = current_word.slice(0, -1);
