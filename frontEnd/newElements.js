@@ -4,7 +4,7 @@ class game_row extends HTMLDivElement{
     }
 }
 
-class game_tile extends HTMLElement{
+class game_tile extends HTMLDivElement{
     constructor(){
         super();
     }
