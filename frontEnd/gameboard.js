@@ -27,6 +27,7 @@ function wordInput (letter){
             collum += 1;
         }
     }
+
     document.getElementById('test').innerHTML = current_word;
 }
 
@@ -37,4 +38,6 @@ function wordDes(){
         let all_tiles = document.querySelectorAll('game-tile');
         all_tiles[row*word_lenght+collum].innerHTML = " ";        
     }
+
+    document.getElementById('test').innerHTML = current_word;
 }
