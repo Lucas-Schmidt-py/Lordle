@@ -19,7 +19,11 @@
     top: 2px;    
 }
 
-#Help{
+#Help{    
+    background-color: white;
+    height: 50px;
     position: absolute;
-    left: 95% 
+    right: 6px ;
+    top: 0.5vh;
+
 }
