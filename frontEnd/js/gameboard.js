@@ -4,13 +4,17 @@ let current_word= "";
 let WORD_LENGTH = 5;
 let ROW_LENGTH = 6;
 
+
+
 function wordInput (letter){
+    document.getElementById('test').innerHTML = compareWords('etere','there')
     if(letter==='ENTER'){      
         //if(in_list(current_word)){
             //trigger color change and animation  
             collum = 0;
-            row += 1;
-            current_word= "";        
+            row += 1;            
+            current_word= "";
+
 
             if(row===ROW_LENGTH){
                 //result screen
@@ -28,7 +32,6 @@ function wordInput (letter){
         }
     }
 
-    document.getElementById('test').innerHTML = current_word;
 }
 
 function wordDes(){
@@ -39,7 +42,6 @@ function wordDes(){
         all_tiles[row*WORD_LENGTH+collum].innerHTML = " ";        
     }
 
-    document.getElementById('test').innerHTML = current_word;
 }
 
 //removes word[index] from word
