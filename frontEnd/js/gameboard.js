@@ -70,7 +70,6 @@ function compareWords(str1, str2){
             }
         }
     }
-    console.log(result_array);
     return result_array.join('');
 
 
