@@ -1,10 +1,9 @@
 champ_list = []
-i = 0
 
 with open('srcs/champs/Champs_5_letters', 'r') as file:
     for line in file:
         champ = line.strip()
-        champ_list.append("'" + champ  + "'") 
+        champ_list.append("'" + champ.upper()  + "'") 
 
 
 with open('srcs/champs/champset.txt', 'w') as file2:

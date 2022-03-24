@@ -3,7 +3,7 @@ let collum = 0;
 let current_word= "";
 const WORD_LENGTH = 5;
 const ROW_COUNT = 6;
-const CHAMP_SET = new Set(['Akali','Amumu','Annie','Brand','Braum','Corki','Diana','Elise','Fiora','Galio','Garen','Ivern','Janna','Jayce','Karma','Kayle','Leona','Mundo','Nasus','Neeko','Poppy','Quinn','Rakan','Riven','Senna','Shaco','Sivir','Swain','Sylas','Talon','Taric','Teemo','Urgot','Varus','Vayne','Viego','Xayah','Yasuo','Yuumi','Ziggs'])
+const CHAMP_SET = new Set(['AKALI','AMUMU','ANNIE','BRAND','BRAUM','CORKI','DIANA','ELISE','FIORA','GALIO','GAREN','IVERN','JANNA','JAYCE','KARMA','KAYLE','LEONA','MUNDO','NASUS','NEEKO','POPPY','QUINN','RAKAN','RIVEN','SENNA','SHACO','SIVIR','SWAIN','SYLAS','TALON','TARIC','TEEMO','URGOT','VARUS','VAYNE','VIEGO','XAYAH','YASUO','YUUMI','ZIGGS']);
 
 function wordInput (letter){
     document.getElementById('test').innerHTML = compareWords('etere','there')
