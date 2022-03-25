@@ -6,19 +6,21 @@ const ROW_COUNT = 6;
 const CHAMP_SET = new Set(['AKALI','AMUMU','ANNIE','BRAND','BRAUM','CORKI','DIANA','ELISE','FIORA','GALIO','GAREN','IVERN','JANNA','JAYCE','KARMA','KAYLE','LEONA','MUNDO','NASUS','NEEKO','POPPY','QUINN','RAKAN','RIVEN','SENNA','SHACO','SIVIR','SWAIN','SYLAS','TALON','TARIC','TEEMO','URGOT','VARUS','VAYNE','VIEGO','XAYAH','YASUO','YUUMI','ZIGGS']);
 
 function wordInput (letter){
-    document.getElementById('test').innerHTML = compareWords('etere','there')
-    if(letter==='ENTER'){      
-        //if(in_list(current_word)){
+    if(letter==='ENTER'){   
+        if(CHAMP_SET.has(current_word)){
+            //if(wordGuessed) --> WIN
             //trigger color change and animation  
             collum = 0;
             row += 1;            
             current_word= "";
 
-
             if(row===ROW_COUNT){
-                //result screen
+                //result screen LOSE
             }
-        //}
+        }
+        else{
+            //nicht möglich Animation
+        }
     }else{
         if(collum < WORD_LENGTH && row < ROW_COUNT){
             if(letter==='SPACE'){
@@ -47,6 +49,8 @@ function wordDes(){
 /**description: for each position in ROW_COUNT concatenate a str corresponding whether the letter 
 is (1)in the same position, (2) included, (3) or not included in str2**/
 function compareWords(str1, str2){
+    str1 = str1.toUpperCase();
+    str2 = str2.toUpperCase();
     let result_array = new Array(WORD_LENGTH);
     let letters_not_found = Array.from(str2);
 
@@ -71,35 +75,4 @@ function compareWords(str1, str2){
         }
     }
     return result_array.join('');
-
-
-    //falsch
-    /**let result = '';
-    let letters_not_found = str2;
-
-    for(let i = 0; i < WORD_LENGTH; i++){
-        if(i >= str1.length){
-            result += '3';
-            continue;
-        }
-
-        index = letters_not_found.indexOf(str1[i]);
-        
-        if(i < str2.length){
-            if(str1[i] === str2[i]){
-                result += '1';
-                letters_not_found = removeChar(letters_not_found, index);
-                continue;
-            }
-        }
-
-        if(index !== -1){
-            result += '2';
-            letters_not_found = removeChar(letters_not_found, index);
-        }
-        else{
-            result += '3';
-        }
-    }
-    return result;**/
 }

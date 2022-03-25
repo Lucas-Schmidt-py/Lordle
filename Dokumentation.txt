@@ -15,7 +15,6 @@ Was ist noch zu machen:
     -Farben anpassen der Gameboards
     (wird wiederholt (Zeile++))
 
-    -Keyboard eingabe
 
     -Hurrah
 
@@ -69,7 +68,7 @@ bonus: -Cookies (geht nicht in git)
 
 21.3.22:
     Was wir gemacht haben:
-        -
+        -siehe Aufgaben (Besprechung)
     
     Notes:
         -Enter-Taste sticht heraus
@@ -82,3 +81,12 @@ bonus: -Cookies (geht nicht in git)
     Aufgabe 25.3:
         Lucas: Eingabefeld
         Minh: Wort in Liste(geordnet) und farbstring 
+
+25.3.22:
+    Was wir gemacht haben:
+        -siehe Aufgaben
+
+    Aufgaben 29.3:
+        -Minh: Farben wechseln + Animation
+        -Lucas: WIN, LOSE, not possible animation, Wort fischen
+        
