@@ -9,7 +9,8 @@ function wordInput (letter){
     if(letter==='ENTER'){   
         if(CHAMP_SET.has(current_word)){
             //if(wordGuessed) --> WIN
-            //trigger color change and animation  
+            //trigger color change and animation
+            colorChange(row, '12312');  
             collum = 0;
             row += 1;            
             current_word= "";
@@ -32,7 +33,6 @@ function wordInput (letter){
             collum += 1;
         }
     }
-
 }
 
 function wordDes(){
@@ -75,4 +75,24 @@ function compareWords(str1, str2){
         }
     }
     return result_array.join('');
+}
+
+//changes background color in currenRow based on comp_str
+async function colorChange(currentRow, comp_str){
+    let all_tiles = document.querySelectorAll('game-tile');
+    for(let i = 0; i < WORD_LENGTH; i++){
+        current_tile = all_tiles[currentRow*WORD_LENGTH + i];
+        current_tile.style.animation = 'flip-out-hor-top 0.45s cubic-bezier(0.550, 0.085, 0.680, 0.530) both';
+        await delay(340);
+        
+        //WIP COLOR
+        if(comp_str[i] === '1') current_tile.style.backgroundColor = 'green';
+        if(comp_str[i] === '2') current_tile.style.backgroundColor = 'yellow';
+        if(comp_str[i] === '3') current_tile.style.backgroundColor = 'gray';
+        current_tile.style.animation = 'flip-in-hor-bottom 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both';
+    }
+}
+
+function delay(time){
+    return new Promise(resolve => setTimeout(resolve, time));
 }
