@@ -1,5 +1,5 @@
 let row = 0;
-let collum = 0;
+let collumn = 0;
 let current_word= "";
 const WORD_LENGTH = 5;
 const ROW_COUNT = 6;
@@ -11,7 +11,7 @@ function wordInput (letter){
             //if(wordGuessed) --> WIN
             //trigger color change and animation
             colorChange(row, '12312');  
-            collum = 0;
+            collumn = 0;
             row += 1;            
             current_word= "";
 
@@ -23,24 +23,28 @@ function wordInput (letter){
             //nicht möglich Animation
         }
     }else{
-        if(collum < WORD_LENGTH && row < ROW_COUNT){
+        if(collumn < WORD_LENGTH && row < ROW_COUNT){
             if(letter==='SPACE'){
                 letter='/'
             }
             current_word += letter;
             let all_tiles = document.querySelectorAll('game-tile');
-            all_tiles[row*WORD_LENGTH+collum].innerHTML = letter;
-            collum += 1;
+            all_tiles[row*WORD_LENGTH+collumn].innerHTML = letter;
+            all_tiles[row*WORD_LENGTH+collumn].style.border = '2px solid #878A8C'
+            all_tiles[row*WORD_LENGTH+collumn].style.animation = 'highlight 200ms ease 0s 1 normal forwards';
+            collumn += 1;
         }
     }
 }
 
 function wordDes(){
-    if(collum!==0){
-        collum -= 1;
+    if(collumn!==0){
+        collumn -= 1;
         current_word = current_word.slice(0, -1);
         let all_tiles = document.querySelectorAll('game-tile');
-        all_tiles[row*WORD_LENGTH+collum].innerHTML = " ";        
+        all_tiles[row*WORD_LENGTH+collumn].innerHTML = "";
+        all_tiles[row*WORD_LENGTH+collumn].style.border = '2px solid #D3D6DA'
+        all_tiles[row*WORD_LENGTH+collumn].style.animation = '';        
     }
 
 }
@@ -83,12 +87,15 @@ async function colorChange(currentRow, comp_str){
     for(let i = 0; i < WORD_LENGTH; i++){
         current_tile = all_tiles[currentRow*WORD_LENGTH + i];
         current_tile.style.animation = 'flip-out-hor-top 0.45s cubic-bezier(0.550, 0.085, 0.680, 0.530) both';
-        await delay(200);
+        await delay(300);
         
         //WIP COLOR
-        if(comp_str[i] === '1') current_tile.style.backgroundColor = 'green';
-        if(comp_str[i] === '2') current_tile.style.backgroundColor = 'yellow';
-        if(comp_str[i] === '3') current_tile.style.backgroundColor = 'gray';
+        if(comp_str[i] === '1') current_tile.style.backgroundColor = '#6AAA64';
+        if(comp_str[i] === '2') current_tile.style.backgroundColor = '#C9B458';
+        if(comp_str[i] === '3') current_tile.style.backgroundColor = '#787C7E';
+        current_tile.style.color = 'white';
+        current_tile.style.border = 'none';
+        current_tile.style.paddingTop = '22%';
         current_tile.style.animation = 'flip-in-hor-bottom 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both';
     }
 }
