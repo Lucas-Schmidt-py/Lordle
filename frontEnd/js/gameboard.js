@@ -4,23 +4,32 @@ let current_word= "";
 const WORD_LENGTH = 5;
 const ROW_COUNT = 6;
 const CHAMP_SET = new Set(['AKALI','AMUMU','ANNIE','BRAND','BRAUM','CORKI','DIANA','ELISE','FIORA','GALIO','GAREN','IVERN','JANNA','JAYCE','KARMA','KAYLE','LEONA','MUNDO','NASUS','NEEKO','POPPY','QUINN','RAKAN','RIVEN','SENNA','SHACO','SIVIR','SWAIN','SYLAS','TALON','TARIC','TEEMO','URGOT','VARUS','VAYNE','VIEGO','XAYAH','YASUO','YUUMI','ZIGGS']);
+let result= '';
+
+function createResult(){
+    let i = Math.floor(Math.random() * CHAMP_SET.size);
+    document.getElementById('test').innerHTML = Array.from(CHAMP_SET)[i]
+    RESULT = Array.from(CHAMP_SET)[i];
+}
+
 
 function wordInput (letter){
     if(letter==='ENTER'){   
         if(CHAMP_SET.has(current_word)){
-            //if(wordGuessed) --> WIN
             //trigger color change and animation
-            colorChange(row, '12312');  
+            colorChange(row, compareWords(current_word,RESULT));
             collumn = 0;
             row += 1;            
             current_word= "";
-
-            if(row===ROW_COUNT){
-                //result screen LOSE
-            }
         }
         else{
-            //nicht möglich Animation
+            let all_tiles = document.querySelectorAll('game-tile'); 
+            for (let i = 0;i<WORD_LENGTH;i++){
+                let current_tile = all_tiles[row*WORD_LENGTH+i]  
+                current_tile.style.animation='none';
+                void current_tile.offsetWidth;
+                current_tile.style.animation= 'shake-horizontal .5s cubic-bezier(.455,.03,.515,.955) both';                
+            }
         }
     }else{
         if(collumn < WORD_LENGTH && row < ROW_COUNT){
@@ -46,7 +55,15 @@ function wordDes(){
         all_tiles[row*WORD_LENGTH+collumn].style.border = '2px solid #D3D6DA'
         all_tiles[row*WORD_LENGTH+collumn].style.animation = '';        
     }
+}
 
+function judge(code){
+    for(let i =0;i<code.length;i++){
+        if(code[i]!='1'){
+            return false;
+        }
+    }
+    return true;
 }
 
 //input: 2 strings 
@@ -98,6 +115,15 @@ async function colorChange(currentRow, comp_str){
         current_tile.style.paddingTop = '22%';
         current_tile.style.animation = 'flip-in-hor-bottom 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both';
     }
+
+    await delay(500)
+    if(judge(comp_str)){
+        document.getElementById('win_layer').style.display = 'block';    
+    }else if(currentRow+1===ROW_COUNT){
+        document.getElementById('win_layer').style.display = 'block'; 
+        document.getElementById('game_result').innerHTML = 'You Loose'
+    }
+    
 }
 
 function delay(time){

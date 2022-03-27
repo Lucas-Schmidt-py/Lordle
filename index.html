@@ -7,6 +7,7 @@
     <title>Lordle</title>
     <link rel="stylesheet" href="frontEnd/css/keyboard.css"> 
     <link rel="stylesheet" href="frontEnd/css/header.css"> 
+    <link rel="stylesheet" href="frontEnd/css/win.css"> 
     <link rel="stylesheet" href="frontEnd/css/gameboard.css">
     <link rel="stylesheet" href="frontEnd/css/help.css">
     <link href="frontEnd/sytles.html" rel="import" />
@@ -17,7 +18,7 @@
     <script src="frontEnd/js/newElements.js"></script>
 
 </head>
-<body>
+<body onload="createResult()">
 
 <div id="overlay">
     <div id="help_cheese">
@@ -30,6 +31,16 @@
         </div>
     </div>
 </div> 
+
+<div id="win_layer">
+    <div id="win_cheese">
+        <div id="win_base">
+            <div class="help_text" id="game_result">You Win</div>
+        </div>
+    </div>
+</div>
+
+<div id="test"></div>
 
 <header>
     <span>
@@ -85,6 +96,7 @@
         <game-tile></game-tile>
         <game-tile></game-tile>
 </div>
+
 
 <div class="keyboard-base">
     <div class="Spacer"></div>
