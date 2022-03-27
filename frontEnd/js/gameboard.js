@@ -100,7 +100,7 @@ async function colorChange(currentRow, comp_str){
     for(let i = 0; i < WORD_LENGTH; i++){
         current_tile = all_tiles[currentRow*WORD_LENGTH + i];
         current_tile.style.animation = 'flip-out-hor-top 0.45s cubic-bezier(0.550, 0.085, 0.680, 0.530) both';
-        await delay(340);
+        await delay(200);
         
         //WIP COLOR
         if(comp_str[i] === '1') current_tile.style.backgroundColor = 'green';
