@@ -35,7 +35,10 @@
   }
 
   #help_close{
+    width: 20px;
     position: fixed;
+    text-align: center;
+    border-color: rgb(201, 201, 201);
     left: 48vh;
     top: 0;
     background-color: white;
