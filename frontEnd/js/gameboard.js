@@ -17,7 +17,8 @@ function wordInput (letter){
     if(letter==='ENTER'){   
         if(CHAMP_SET.has(current_word)){
             //trigger color change and animation
-            colorChange(row, compareWords(current_word,RESULT));
+            let color_code = compareWords(current_word,RESULT);
+            colorChange(row, color_code, current_word);
             collumn = 0;
             row += 1;            
             current_word= "";
@@ -98,32 +99,59 @@ function compareWords(str1, str2){
     return result_array.join('');
 }
 
-//changes background color in currenRow based on comp_str
-async function colorChange(currentRow, comp_str){
-    let all_tiles = document.querySelectorAll('game-tile');
-    for(let i = 0; i < WORD_LENGTH; i++){
-        current_tile = all_tiles[currentRow*WORD_LENGTH + i];
-        current_tile.style.animation = 'flip-out-hor-top 0.45s cubic-bezier(0.550, 0.085, 0.680, 0.530) both';
-        await delay(300);
-        
-        //WIP COLOR
-        if(comp_str[i] === '1') current_tile.style.backgroundColor = '#6AAA64';
-        if(comp_str[i] === '2') current_tile.style.backgroundColor = '#C9B458';
-        if(comp_str[i] === '3') current_tile.style.backgroundColor = '#787C7E';
-        current_tile.style.color = 'white';
-        current_tile.style.border = 'none';
-        current_tile.style.paddingTop = '22%';
-        current_tile.style.animation = 'flip-in-hor-bottom 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both';
-    }
+//changes background color in currenRow and keyboard based on color_code
+async function colorChange(currentRow, color_code, current_word){
+    await(colorGameboard(currentRow, color_code));
+
+    colorKeyboard(current_word, color_code);
 
     await delay(500)
-    if(judge(comp_str)){
+    if(judge(color_code)){
         document.getElementById('win_layer').style.display = 'block';    
     }else if(currentRow+1===ROW_COUNT){
         document.getElementById('win_layer').style.display = 'block'; 
         document.getElementById('game_result').innerHTML = 'You Loose'
     }
+}
+
+async function colorGameboard(currentRow, color_code){
+    let all_tiles = document.querySelectorAll('game-tile');
+    for(let i = 0; i < WORD_LENGTH; i++){
+        current_tile = all_tiles[currentRow*WORD_LENGTH + i];
+        current_tile.style.animation = 'flip-out-hor-top 0.45s cubic-bezier(0.550, 0.085, 0.680, 0.530) both';
     
+        await delay(300);
+        //GREEN
+        if(color_code[i] === '1') current_tile.style.backgroundColor = '#6AAA64';
+        //YELLOW
+        if(color_code[i] === '2') current_tile.style.backgroundColor = '#C9B458';
+        //GRAY
+        if(color_code[i] === '3') current_tile.style.backgroundColor = '#787C7E';
+        current_tile.style.color = 'white';
+        current_tile.style.border = 'none';
+        current_tile.style.paddingTop = '22%';
+        current_tile.style.animation = 'flip-in-hor-bottom 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both';
+    }
+}
+
+function colorKeyboard(str, color_code){
+    str = str.toUpperCase();
+    let index = 0;
+    let current_key;
+
+    for(let char of str){
+        current_key = document.getElementById(char);
+        //GREEN
+        if(color_code[index] === '1') current_key.style.backgroundColor = '#6AAA64';
+        //YELLOW
+        if(color_code[index] === '2' && current_key.style.backgroundColor !== '#6AAA64') 
+        current_key.style.backgroundColor = '#C9B458';
+        //GRAY
+        if(color_code[index] === '3') current_key.style.backgroundColor = '#787C7E';
+        index++;
+
+        current_key.style.color = 'white';
+    }
 }
 
 function delay(time){
