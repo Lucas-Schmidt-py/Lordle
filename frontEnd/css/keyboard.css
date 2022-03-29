@@ -5,13 +5,13 @@ body * {
 
 .keyboard-base {
     position: absolute;
-    top: 82%;
+    top: 85vh;
     left: 50.5%;
     transform: translate(-50%, -50%);
     border-radius: 10px;
     display: grid;
     grid-template-columns: repeat(25, 20px);
-    grid-template-rows: repeat(5, 60px);
+    grid-template-rows: repeat(3, 60px);
     grid-gap: 5px;
 }
 

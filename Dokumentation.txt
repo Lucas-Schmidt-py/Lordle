@@ -90,3 +90,12 @@ bonus: -Cookies (geht nicht in git)
         -Minh: Farben wechseln + Animation
         -Lucas: WIN, LOSE, not possible animation, Wort fischen
         
+29.3.22:
+    Was ist noch zu tun:
+        -noch zu schwer ->champliste auf 4-7 chars
+        -WIN-Screen: Konfetti kleines Fenster HURAAH (RESULT COPIED TO CLIPBOARD) automatisch
+        -LOSE-Screen:(animation) SADGE, Lösungswort (RESULT COPIED TO CLIPBOARD) automatisch
+
+        -Champ-Auswahl, an Datum?
+
+    Aufgaben 

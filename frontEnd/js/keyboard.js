@@ -5,7 +5,5 @@ document.addEventListener('keydown', function(event){
         wordDes();
     }else if(event.keyCode===13){
         wordInput('ENTER');
-    }else if(event.keyCode===32){
-        wordInput('SPACE');
     }
 });

@@ -35,9 +35,6 @@ function wordInput (letter){
             }
         }else{
             if(collumn < WORD_LENGTH && row < ROW_COUNT){
-                if(letter==='SPACE'){
-                    letter='/'
-                }
                 current_word += letter;
                 let all_tiles = document.querySelectorAll('game-tile');
                 all_tiles[row*WORD_LENGTH+collumn].innerHTML = letter;
