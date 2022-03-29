@@ -1,6 +1,7 @@
 let row = 0;
 let collumn = 0;
 let current_word= "";
+let board_access = true;
 const WORD_LENGTH = 5;
 const ROW_COUNT = 6;
 const CHAMP_SET = new Set(['AKALI','AMUMU','ANNIE','BRAND','BRAUM','CORKI','DIANA','ELISE','FIORA','GALIO','GAREN','IVERN','JANNA','JAYCE','KARMA','KAYLE','LEONA','MUNDO','NASUS','NEEKO','POPPY','QUINN','RAKAN','RIVEN','SENNA','SHACO','SIVIR','SWAIN','SYLAS','TALON','TARIC','TEEMO','URGOT','VARUS','VAYNE','VIEGO','XAYAH','YASUO','YUUMI','ZIGGS']);
@@ -14,35 +15,36 @@ function createResult(){
 
 
 function wordInput (letter){
-    if(letter==='ENTER'){   
-        if(CHAMP_SET.has(current_word)){
-            //trigger color change and animation
-            let color_code = compareWords(current_word,RESULT);
-            colorChange(row, color_code, current_word);
-            collumn = 0;
-            row += 1;            
-            current_word= "";
-        }
-        else{
-            let all_tiles = document.querySelectorAll('game-tile'); 
-            for (let i = 0;i<WORD_LENGTH;i++){
-                let current_tile = all_tiles[row*WORD_LENGTH+i]  
-                current_tile.style.animation='none';
-                void current_tile.offsetWidth;
-                current_tile.style.animation= 'shake-horizontal .5s cubic-bezier(.455,.03,.515,.955) both';                
+    if(board_access){
+        if(letter==='ENTER'){   
+            if(CHAMP_SET.has(current_word)){
+                let color_code = compareWords(current_word, RESULT);
+                colorChange(row, color_code, current_word);
+                collumn = 0;
+                row += 1;     
+                current_word= "";
             }
-        }
-    }else{
-        if(collumn < WORD_LENGTH && row < ROW_COUNT){
-            if(letter==='SPACE'){
-                letter='/'
+            else{
+                let all_tiles = document.querySelectorAll('game-tile'); 
+                for (let i = 0;i<WORD_LENGTH;i++){
+                    let current_tile = all_tiles[row*WORD_LENGTH+i]  
+                    current_tile.style.animation='none';
+                    void current_tile.offsetWidth;
+                    current_tile.style.animation= 'shake-horizontal .5s cubic-bezier(.455,.03,.515,.955) both';                
+                }
             }
-            current_word += letter;
-            let all_tiles = document.querySelectorAll('game-tile');
-            all_tiles[row*WORD_LENGTH+collumn].innerHTML = letter;
-            all_tiles[row*WORD_LENGTH+collumn].style.border = '2px solid #878A8C'
-            all_tiles[row*WORD_LENGTH+collumn].style.animation = 'highlight 200ms ease 0s 1 normal forwards';
-            collumn += 1;
+        }else{
+            if(collumn < WORD_LENGTH && row < ROW_COUNT){
+                if(letter==='SPACE'){
+                    letter='/'
+                }
+                current_word += letter;
+                let all_tiles = document.querySelectorAll('game-tile');
+                all_tiles[row*WORD_LENGTH+collumn].innerHTML = letter;
+                all_tiles[row*WORD_LENGTH+collumn].style.border = '2px solid #878A8C'
+                all_tiles[row*WORD_LENGTH+collumn].style.animation = 'highlight 200ms ease 0s 1 normal forwards';
+                collumn += 1;
+            }
         }
     }
 }
@@ -99,34 +101,36 @@ function compareWords(str1, str2){
     return result_array.join('');
 }
 
-//changes background color in currenRow and keyboard based on color_code
-async function colorChange(currentRow, color_code, current_word){
-    await(colorGameboard(currentRow, color_code));
+//changes background color in current_row and keyboard based on color_code
+async function colorChange(current_row, color_code, current_word){
+    board_access = false
+    await(colorGameboard(current_row, color_code));
 
     colorKeyboard(current_word, color_code);
 
     await delay(500)
     if(judge(color_code)){
         document.getElementById('win_layer').style.display = 'block';    
-    }else if(currentRow+1===ROW_COUNT){
+    }else if(current_row+1===ROW_COUNT){
         document.getElementById('win_layer').style.display = 'block'; 
         document.getElementById('game_result').innerHTML = 'You Loose'
     }
+    board_access = true;
 }
 
-async function colorGameboard(currentRow, color_code){
+async function colorGameboard(current_row, color_code){
     let all_tiles = document.querySelectorAll('game-tile');
+    const GREEN = 'rgb(106, 170, 100)';
+    const YELLOW = 'rgb(201, 180, 88)';
+    const GRAY = 'rgb(120, 124, 126)';
     for(let i = 0; i < WORD_LENGTH; i++){
-        current_tile = all_tiles[currentRow*WORD_LENGTH + i];
+        current_tile = all_tiles[current_row*WORD_LENGTH + i];
         current_tile.style.animation = 'flip-out-hor-top 0.45s cubic-bezier(0.550, 0.085, 0.680, 0.530) both';
-    
+        console.log(current_tile);
         await delay(300);
-        //GREEN
-        if(color_code[i] === '1') current_tile.style.backgroundColor = '#6AAA64';
-        //YELLOW
-        if(color_code[i] === '2') current_tile.style.backgroundColor = '#C9B458';
-        //GRAY
-        if(color_code[i] === '3') current_tile.style.backgroundColor = '#787C7E';
+        if(color_code[i] === '1') current_tile.style.backgroundColor = GREEN;
+        if(color_code[i] === '2') current_tile.style.backgroundColor = YELLOW;
+        if(color_code[i] === '3') current_tile.style.backgroundColor = GRAY;
         current_tile.style.color = 'white';
         current_tile.style.border = 'none';
         current_tile.style.paddingTop = '22%';
@@ -138,16 +142,23 @@ function colorKeyboard(str, color_code){
     str = str.toUpperCase();
     let index = 0;
     let current_key;
+    const GREEN = 'rgb(106, 170, 100)';
+    const YELLOW = 'rgb(201, 180, 88)';
+    const GRAY = 'rgb(120, 124, 126)';
 
     for(let char of str){
         current_key = document.getElementById(char);
-        //GREEN
-        if(color_code[index] === '1') current_key.style.backgroundColor = '#6AAA64';
-        //YELLOW
-        if(color_code[index] === '2' && current_key.style.backgroundColor !== '#6AAA64') 
-        current_key.style.backgroundColor = '#C9B458';
-        //GRAY
-        if(color_code[index] === '3') current_key.style.backgroundColor = '#787C7E';
+
+        if(color_code[index] === '1'){
+            current_key.style.backgroundColor = GREEN;
+        }
+        if(color_code[index] === '2' && current_key.style.backgroundColor !== GREEN){
+            current_key.style.backgroundColor = YELLOW;
+        }
+        if(color_code[index] === '3' && current_key.style.backgroundColor !== GREEN
+            && current_key.style.backgroundColor !== YELLOW){
+                current_key.style.backgroundColor = GRAY;
+        }
         index++;
 
         current_key.style.color = 'white';
