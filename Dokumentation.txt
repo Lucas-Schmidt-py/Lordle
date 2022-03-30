@@ -98,4 +98,6 @@ bonus: -Cookies (geht nicht in git)
 
         -Champ-Auswahl, an Datum?
 
-    Aufgaben 
+    Aufgaben 1.4.22:
+        -Minh: Champliste erweitern, Animationen für WIN/LOSE
+        -Lucas: WIN/LOSE-Screen + Copy to Clip
