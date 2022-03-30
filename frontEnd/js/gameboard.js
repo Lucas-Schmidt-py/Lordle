@@ -107,7 +107,8 @@ async function colorChange(current_row, color_code, current_word){
 
     await delay(500)
     if(judge(color_code)){
-        document.getElementById('win_layer').style.display = 'block';    
+        document.getElementById('win_layer').style.display = 'block';
+        throwConfetti();    
     }else if(current_row+1===ROW_COUNT){
         document.getElementById('win_layer').style.display = 'block'; 
         document.getElementById('game_result').innerHTML = 'You Loose'
