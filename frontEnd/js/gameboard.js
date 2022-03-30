@@ -2,9 +2,9 @@ let row = 0;
 let collumn = 0;
 let current_word= "";
 let board_access = true;
-const WORD_LENGTH = 5;
+const WORD_LENGTH = 6;
 const ROW_COUNT = 6;
-const CHAMP_SET = new Set(['AKALI','AMUMU','ANNIE','BRAND','BRAUM','CORKI','DIANA','ELISE','FIORA','GALIO','GAREN','IVERN','JANNA','JAYCE','KARMA','KAYLE','LEONA','MUNDO','NASUS','NEEKO','POPPY','QUINN','RAKAN','RIVEN','SENNA','SHACO','SIVIR','SWAIN','SYLAS','TALON','TARIC','TEEMO','URGOT','VARUS','VAYNE','VIEGO','XAYAH','YASUO','YUUMI','ZIGGS']);
+const CHAMP_SET = new Set(['AHRI','ASHE','AZIR','BARD','EKKO','FIZZ','GNAR','GWEN','JHIN','JINX','KAYN','KLED','LULU','NAMI','NUNU','OLAF','ORNN','PYKE','RELL','RYZE','SETT','SHEN','SION','SONA','TAHM','UDYR','YONE','ZERI','AKALI','AMUMU','ANNIE','BRAND','BRAUM','CORKI','DIANA','ELISE','FIORA','GALIO','GAREN','IVERN','JANNA','JAYCE','KARMA','KAYLE','LEONA','MUNDO','NASUS','NEEKO','POPPY','QUINN','RAKAN','RIVEN','SENNA','SHACO','SIVIR','SWAIN','SYLAS','TALON','TARIC','TEEMO','URGOT','VARUS','VAYNE','VIEGO','XAYAH','YASUO','YUUMI','ZIGGS','AATROX','AKSHAN','ANIVIA','DARIUS','DRAVEN','EZREAL','GRAGAS','GRAVES','ILLAOI','IRELIA','JARVAN','KENNEN','LILLIA','LUCIAN','MAOKAI','MASTER','QIYANA','RAMMUS','RENATA','RENGAR','RUMBLE','SAMIRA','SINGED','SORAKA','SYNDRA','THRESH','TWITCH','VEIGAR','VIKTOR','WUKONG','XERATH','YORICK','ZILEAN']);
 let result= '';
 
 function createResult(){
@@ -58,7 +58,7 @@ function wordDes(){
 }
 
 function judge(code){
-    for(let i =0;i<code.length;i++){
+    for(let i =0;i<RESULT.length;i++){
         if(code[i]!='1'){
             return false;
         }
@@ -123,7 +123,6 @@ async function colorGameboard(current_row, color_code){
     for(let i = 0; i < WORD_LENGTH; i++){
         current_tile = all_tiles[current_row*WORD_LENGTH + i];
         current_tile.style.animation = 'flip-out-hor-top 0.45s cubic-bezier(0.550, 0.085, 0.680, 0.530) both';
-        console.log(current_tile);
         await delay(300);
         if(color_code[i] === '1') current_tile.style.backgroundColor = GREEN;
         if(color_code[i] === '2') current_tile.style.backgroundColor = YELLOW;

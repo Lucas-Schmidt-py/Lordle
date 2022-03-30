@@ -1,6 +1,6 @@
 champ_list = []
 
-with open('srcs/champs/Champs_5_letters', 'r') as file:
+with open('srcs/champs/Champs.txt', 'r') as file:
     for line in file:
         champ = line.strip()
         champ_list.append("'" + champ.upper()  + "'") 
