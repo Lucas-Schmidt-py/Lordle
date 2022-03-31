@@ -18,7 +18,8 @@
     position: absolute;
     right: 6px ;
     top: 0.5vh;
-
+    font-size: 25px;
+    line-height:1px;
 }
 hr { 
     display: block; 

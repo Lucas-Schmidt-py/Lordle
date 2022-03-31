@@ -230,6 +230,7 @@ function createYourTry(){
     my_Try = my_Try.join('\n')
     my_Try.slice(0, -1);
     let res;
+    
     if(loose){
         res='X'
     }else{

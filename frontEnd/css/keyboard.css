@@ -43,6 +43,8 @@ body * {
 
 .delete {
     grid-column: span 3;
+    font-size: 23px;
+    padding-top: 12px;
 }
 
 .command {
