@@ -218,8 +218,15 @@ function createYourTry(){
     let all_tiles = document.querySelectorAll('game-tile');
     for(let i =0;i<row;i++){
         for(let j = 0; j<WORD_LENGTH;j++){
-            let tile = all_tiles[i*WORD_LENGTH+j];            
-            my_Try[i].push(judgeTile(tile))
+            if(j<WORD_LENGTH-2){            
+                let tile = all_tiles[i*WORD_LENGTH+j];            
+                my_Try[i].push(judgeTile(tile))
+            }else if(!loose && i+1===row){
+                my_Try[i].push('🟩');
+            }else{
+                my_Try[i].push('🟥');
+            }
+
         }
         my_Try.push([]);
     }
