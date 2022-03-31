@@ -1,12 +1,13 @@
 let row = 0;
 let collumn = 0;
 let current_word= "";
+let loose = false;
 let board_access = true;
 const WORD_LENGTH = 6;
 const ROW_COUNT = 6;
 const CHAMP_SET = new Set(['AHRI','ASHE','AZIR','BARD','EKKO','FIZZ','GNAR','GWEN','JHIN','JINX','KAYN','KLED','LULU','NAMI','NUNU','OLAF','ORNN','PYKE','RELL','RYZE','SETT','SHEN','SION','SONA','TAHM','UDYR','YONE','ZERI','AKALI','AMUMU','ANNIE','BRAND','BRAUM','CORKI','DIANA','ELISE','FIORA','GALIO','GAREN','IVERN','JANNA','JAYCE','KARMA','KAYLE','LEONA','MUNDO','NASUS','NEEKO','POPPY','QUINN','RAKAN','RIVEN','SENNA','SHACO','SIVIR','SWAIN','SYLAS','TALON','TARIC','TEEMO','URGOT','VARUS','VAYNE','VIEGO','XAYAH','YASUO','YUUMI','ZIGGS','AATROX','AKSHAN','ANIVIA','DARIUS','DRAVEN','EZREAL','GRAGAS','GRAVES','ILLAOI','IRELIA','JARVAN','KENNEN','LILLIA','LUCIAN','MAOKAI','MASTER','QIYANA','RAMMUS','RENATA','RENGAR','RUMBLE','SAMIRA','SINGED','SORAKA','SYNDRA','THRESH','TWITCH','VEIGAR','VIKTOR','WUKONG','XERATH','YORICK','ZILEAN']);
 let result= '';
-const DATUM = Math.round(Date.now()/(1000*60*60*24));
+const DATUM = Math.round(Date.now()/(1000*60*60*24))-19082;
 
 function createResult(){
     let i = Math.floor(Math.random() * CHAMP_SET.size);
@@ -119,7 +120,8 @@ async function colorChange(current_row, color_code, current_word){
         await delay(500)
         document.getElementById('win_layer').style.display = 'block'; 
         document.getElementById('win_layer').style.backgroundColor = 'rgb(120, 124, 126)';
-        document.getElementById('win_layer').innerHTML = 'You Loose'    
+        document.getElementById('win_layer').innerHTML = 'You Loose';
+        loose=true;    
         copyStringToClipboard(createYourTry());       
     }
 }
@@ -227,7 +229,13 @@ function createYourTry(){
 
     my_Try = my_Try.join('\n')
     my_Try.slice(0, -1);
-    my_Try = "Lordle " +DATUM+ " "+row+ "/" +ROW_COUNT+"\n\n"+ my_Try;
+    let res;
+    if(loose){
+        res='X'
+    }else{
+        res=row;
+    }
+    my_Try = "Lordle " +DATUM+ " "+res+ "/" +ROW_COUNT+"\n\n"+ my_Try;
     return my_Try;
 }
 
