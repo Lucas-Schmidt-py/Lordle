@@ -6,6 +6,7 @@ const WORD_LENGTH = 6;
 const ROW_COUNT = 6;
 const CHAMP_SET = new Set(['AHRI','ASHE','AZIR','BARD','EKKO','FIZZ','GNAR','GWEN','JHIN','JINX','KAYN','KLED','LULU','NAMI','NUNU','OLAF','ORNN','PYKE','RELL','RYZE','SETT','SHEN','SION','SONA','TAHM','UDYR','YONE','ZERI','AKALI','AMUMU','ANNIE','BRAND','BRAUM','CORKI','DIANA','ELISE','FIORA','GALIO','GAREN','IVERN','JANNA','JAYCE','KARMA','KAYLE','LEONA','MUNDO','NASUS','NEEKO','POPPY','QUINN','RAKAN','RIVEN','SENNA','SHACO','SIVIR','SWAIN','SYLAS','TALON','TARIC','TEEMO','URGOT','VARUS','VAYNE','VIEGO','XAYAH','YASUO','YUUMI','ZIGGS','AATROX','AKSHAN','ANIVIA','DARIUS','DRAVEN','EZREAL','GRAGAS','GRAVES','ILLAOI','IRELIA','JARVAN','KENNEN','LILLIA','LUCIAN','MAOKAI','MASTER','QIYANA','RAMMUS','RENATA','RENGAR','RUMBLE','SAMIRA','SINGED','SORAKA','SYNDRA','THRESH','TWITCH','VEIGAR','VIKTOR','WUKONG','XERATH','YORICK','ZILEAN']);
 let result= '';
+const DATUM = Math.round(Date.now()/(1000*60*60*24));
 
 function createResult(){
     let i = Math.floor(Math.random() * CHAMP_SET.size);
@@ -104,16 +105,23 @@ async function colorChange(current_row, color_code, current_word){
     await(colorGameboard(current_row, color_code));
 
     colorKeyboard(current_word, color_code);
+    
 
-    await delay(500)
-    if(judge(color_code)){
-        document.getElementById('win_layer').style.display = 'block';
-        throwConfetti();    
-    }else if(current_row+1===ROW_COUNT){
-        document.getElementById('win_layer').style.display = 'block'; 
-        document.getElementById('game_result').innerHTML = 'You Loose'
-    }
     board_access = true;
+    if(judge(color_code)){        
+        board_access = false; 
+        await delay(500)
+        document.getElementById('win_layer').style.display = 'block';
+        throwConfetti();  
+        copyStringToClipboard(createYourTry()); 
+    }else if(current_row+1===ROW_COUNT){
+        board_access = false; 
+        await delay(500)
+        document.getElementById('win_layer').style.display = 'block'; 
+        document.getElementById('win_layer').style.backgroundColor = 'rgb(120, 124, 126)';
+        document.getElementById('win_layer').innerHTML = 'You Loose'    
+        copyStringToClipboard(createYourTry());       
+    }
 }
 
 async function colorGameboard(current_row, color_code){
@@ -202,3 +210,55 @@ function throwConfetti(){
 function delay(time){
     return new Promise(resolve => setTimeout(resolve, time));
 }
+
+function createYourTry(){
+    let my_Try = [[]];
+    let all_tiles = document.querySelectorAll('game-tile');
+    for(let i =0;i<row;i++){
+        for(let j = 0; j<WORD_LENGTH;j++){
+            let tile = all_tiles[i*WORD_LENGTH+j];            
+            my_Try[i].push(judgeTile(tile))
+        }
+        my_Try.push([]);
+    }
+    for(let i = 0 ; i<my_Try.length;i++){
+        my_Try[i]=my_Try[i].join('');
+    }
+
+    my_Try = my_Try.join('\n')
+    my_Try.slice(0, -1);
+    my_Try = "Lordle " +DATUM+ " "+row+ "/" +ROW_COUNT+"\n\n"+ my_Try;
+    return my_Try;
+}
+
+function judgeTile(tile){
+    if (tile === undefined){
+        return 'oy';
+    }
+    if (tile.style.backgroundColor === 'rgb(120, 124, 126)'){
+        return '⬜';
+    }else if (tile.style.backgroundColor === 'rgb(201, 180, 88)'){
+        return '🟨';
+    }else if (tile.style.backgroundColor === 'rgb(106, 170, 100)'){
+        return '🟩';
+    }
+    return;
+}
+
+function copyStringToClipboard (str) {
+    // Temporäres Element erzeugen
+    var el = document.createElement('textarea');
+    // Den zu kopierenden String dem Element zuweisen
+    el.value = str;
+    // Element nicht editierbar setzen und aus dem Fenster schieben
+    el.setAttribute('readonly', '');
+    el.style = {position: 'absolute', left: '-9999px'};
+    document.body.appendChild(el);
+    // Text innerhalb des Elements auswählen
+    el.select();
+    // Ausgewählten Text in die Zwischenablage kopieren
+    document.execCommand('copy');
+    // Temporäres Element löschen
+    document.body.removeChild(el);
+ }
+

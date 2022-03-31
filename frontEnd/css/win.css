@@ -1,28 +1,25 @@
 #win_layer{
-    position: fixed; /* Sit on top of the page content */
+    animation: win_layer 0.35s ease 0s 1 normal forwards;
+    line-height: 60px;
+    position: absolute; /* Sit on top of the page content */
     display:none; /* Hidden by default */    
-    width: 100%; /* Full width (cover the whole page) */
-    height: 100%; /* Full height (cover the whole page) */
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.5); /* Black background with opacity */
+    width: 20vh; /* Full width (cover the whole page) */
+    height: 7vh; /* Full height (cover the whole page) */
+    top: 95px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 10px;
+    font-size: 4vh;    
+    text-align: center;
+    color: rgb(255, 255, 255);
+    background-color: rgb(106, 170, 100); /* Black background with opacity */
     z-index: 3; /* Specify a stack order in case you're using a different order for other elements */
 }
 
-#win_base{
-    background-color: rgb(255, 255, 255);
-    width: 50vh;
-    height: 75vh;     
-    transform: translate(-50%,-50%);
-    -ms-transform: translate(-50%,-50%);
-    box-shadow: 0px 5px 5px rgb(37, 37, 37);
-    position: relative;
-    left: 50%;
-    top: 50vh;
-}
-
-#win_cheese{
-    animation:slide-in-top .4s cubic-bezier(.0,.0,.0,.0) both;
-}
+@keyframes win_layer {
+    from {
+      width: 0%;
+      height: 0%;
+      font-size: 0%;
+    }
+  }
