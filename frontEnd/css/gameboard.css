@@ -46,6 +46,7 @@ game-tile{
   }
 
   #test{
+    display: none;
     position: absolute;
     top:100px
   }

@@ -1,7 +1,7 @@
 let row = 0;
 let collumn = 0;
 let current_word= "";
-let loose = false;
+let lose = false;
 let board_access = true;
 const WORD_LENGTH = 6;
 const ROW_COUNT = 6;
@@ -117,11 +117,12 @@ async function colorChange(current_row, color_code, current_word){
         copyStringToClipboard(createYourTry()); 
     }else if(current_row+1===ROW_COUNT){
         board_access = false; 
+        let GRAY = 'rgb(120, 124, 126)';
         await delay(500)
         document.getElementById('win_layer').style.display = 'block'; 
-        document.getElementById('win_layer').style.backgroundColor = 'rgb(120, 124, 126)';
-        document.getElementById('win_layer').innerHTML = 'You Loose';
-        loose=true;    
+        document.getElementById('win_layer').style.backgroundColor = GRAY;
+        document.getElementById('win_layer').innerHTML = 'You Lose';
+        lose=true;    
         copyStringToClipboard(createYourTry());       
     }
 }
@@ -214,14 +215,14 @@ function delay(time){
 }
 
 function createYourTry(){
-    let my_Try = [[]];
-    let all_tiles = document.querySelectorAll('game-tile');
+    let my_Try = '';
+    /*let all_tiles = document.querySelectorAll('game-tile');
     for(let i =0;i<row;i++){
         for(let j = 0; j<WORD_LENGTH;j++){
             if(j<WORD_LENGTH-2){            
                 let tile = all_tiles[i*WORD_LENGTH+j];            
                 my_Try[i].push(judgeTile(tile))
-            }else if(!loose && i+1===row){
+            }else if(!lose && i+1===row){
                 my_Try[i].push('🟩');
             }else{
                 my_Try[i].push('🟥');
@@ -235,15 +236,15 @@ function createYourTry(){
     }
 
     my_Try = my_Try.join('\n')
-    my_Try.slice(0, -1);
+    my_Try.slice(0, -1);*/
     let res;
     
-    if(loose){
+    if(lose){
         res='X'
     }else{
         res=row;
     }
-    my_Try = "Lordle " +DATUM+ " "+res+ "/" +ROW_COUNT+"\n\n"+ my_Try;
+    my_Try = "Lordle " +DATUM+ " "+res+ "/" +ROW_COUNT+"\n\n";
     return my_Try;
 }
 

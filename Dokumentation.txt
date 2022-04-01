@@ -101,3 +101,10 @@ bonus: -Cookies (geht nicht in git)
     Aufgaben 1.4.22:
         -Minh: Champliste erweitern, Animationen für WIN/LOSE
         -Lucas: WIN/LOSE-Screen + Copy to Clip
+
+4.1.22:
+    Was ist noch zu tun:
+        Minh:   -Loesung am Ende sagen
+                -Balancing
+
+        Lucas:  -einheitliche Wörter
