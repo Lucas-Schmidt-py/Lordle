@@ -7,10 +7,14 @@ const WORD_LENGTH = 6;
 const ROW_COUNT = 6;
 const CHAMP_SET = new Set(['DRAVEN', 'TALON', 'SORAKA', 'JARVAN', 'SONA', 'RENGAR', 'VEIGAR', 'RAKAN', 'RYZE', 'KAYN', 'AKSHAN', 'RENATA', 'ANIVIA', 'SHACO', 'AMUMU', 'RUMBLE', 'VAYNE', 'ZIGGS', 'BARD', 'LULU', 'TAHM', 'PYKE', 'ORNN', 'EKKO', 'WUKONG', 'KLED', 'YONE', 'XERATH', 'SIVIR', 'MAOKAI', 'DIANA', 'JHIN', 'AKALI', 'THRESH', 'GALIO', 'QUINN', 'DARIUS', 'ZILEAN', 'MUNDO', 'LILLIA', 'ILLAOI', 'RELL', 'SENNA', 'XAYAH', 'GRAGAS', 'EZREAL', 'SINGED', 'AATROX', 'TARIC', 'GRAVES', 'VIEGO', 'SHEN', 'KAYLE', 'ASHE', 'BRAND', 'GAREN', 'LUCIAN', 'TEEMO', 'POPPY', 'SETT', 'FIORA', 'JINX', 'JANNA', 'FIZZ', 'SION', 'QIYANA', 'SAMIRA', 'NEEKO', 'YUUMI', 'YORICK', 'OLAF', 'YASUO', 'SYLAS', 'UDYR', 'VIKTOR', 'NASUS', 'TWITCH', 'IVERN', 'KARMA', 'SWAIN', 'NUNU', 'URGOT', 'NAMI', 'ANNIE', 'BRAUM', 'ELISE', 'VARUS', 'GNAR', 'LEONA', 'IRELIA', 'CORKI', 'AZIR', 'JAYCE', 'ZERI', 'KENNEN', 'RIVEN', 'SYNDRA', 'GWEN', 'RAMMUS', 'AHRI']);
 let result= '';
-const DATUM = Math.round(Date.now()/(1000*60*60*24))-19082;
+const DATUM = Math.round(Date.now()/(1000*60*60*24))-19085;
 
 function createResult(){
-    RESULT = Array.from(CHAMP_SET)[DATUM];
+    if(DATUM<=100){
+        result = Array.from(CHAMP_SET)[DATUM];
+    }else{
+        result = 'AKALI'
+    }
 }
 
 
@@ -18,7 +22,7 @@ function wordInput (letter){
     if(board_access){
         if(letter==='ENTER'){   
             if(CHAMP_SET.has(current_word)){
-                let color_code = compareWords(current_word, RESULT);
+                let color_code = compareWords(current_word, result);
                 colorChange(row, color_code, current_word);
                 collumn = 0;
                 row += 1;     
@@ -58,7 +62,7 @@ function wordDes(){
 }
 
 function judge(code){
-    for(let i =0;i<RESULT.length;i++){
+    for(let i =0;i<result.length;i++){
         if(code[i]!='1'){
             return false;
         }
