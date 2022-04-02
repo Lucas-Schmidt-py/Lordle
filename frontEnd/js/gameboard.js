@@ -119,7 +119,7 @@ async function colorChange(current_row, color_code, current_word){
         await delay(500)
         document.getElementById('win_layer').style.display = 'block'; 
         document.getElementById('win_layer').style.backgroundColor = GRAY;
-        document.getElementById('win_layer').innerHTML = 'You Lose';
+        document.getElementById('win_layer').innerHTML = RESULT;
         lose=true;    
         copyStringToClipboard(createYourTry());       
     }
