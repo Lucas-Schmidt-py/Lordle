@@ -13,7 +13,7 @@
     text-align: center;
     color: rgb(255, 255, 255);
     background-color: rgb(106, 170, 100); /* Black background with opacity */
-    z-index: 3; /* Specify a stack order in case you're using a different order for other elements */
+    z-index: 1; /* Specify a stack order in case you're using a different order for other elements */
 }
 
 @keyframes win_layer {
