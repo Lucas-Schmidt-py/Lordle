@@ -104,6 +104,7 @@ bonus: -Cookies (geht nicht in git)
 
 4.1.22:
     Was ist noch zu tun:
+        Markierung wegmachen(Fragezeichen, Header, Tiles, keyboard), Rahmen Help-Button, Leerzeichen geben keine Tipps
         Minh:   -Loesung am Ende sagen
                 -Balancing
 

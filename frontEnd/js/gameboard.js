@@ -4,7 +4,7 @@ let current_word= "";
 let lose = false;
 let board_access = true;
 const WORD_LENGTH = 6;
-const ROW_COUNT = 6;
+const ROW_COUNT = 5;
 const CHAMP_SET = new Set(['DRAVEN', 'TALON', 'SORAKA', 'JARVAN', 'SONA', 'RENGAR', 'VEIGAR', 'RAKAN', 'RYZE', 'KAYN', 'AKSHAN', 'RENATA', 'ANIVIA', 'SHACO', 'AMUMU', 'RUMBLE', 'VAYNE', 'ZIGGS', 'BARD', 'LULU', 'TAHM', 'PYKE', 'ORNN', 'EKKO', 'WUKONG', 'KLED', 'YONE', 'XERATH', 'SIVIR', 'MAOKAI', 'DIANA', 'JHIN', 'AKALI', 'THRESH', 'GALIO', 'QUINN', 'DARIUS', 'ZILEAN', 'MUNDO', 'LILLIA', 'ILLAOI', 'RELL', 'SENNA', 'XAYAH', 'GRAGAS', 'EZREAL', 'SINGED', 'AATROX', 'TARIC', 'GRAVES', 'VIEGO', 'SHEN', 'KAYLE', 'ASHE', 'BRAND', 'GAREN', 'LUCIAN', 'TEEMO', 'POPPY', 'SETT', 'FIORA', 'JINX', 'JANNA', 'FIZZ', 'SION', 'QIYANA', 'SAMIRA', 'NEEKO', 'YUUMI', 'YORICK', 'OLAF', 'YASUO', 'SYLAS', 'UDYR', 'VIKTOR', 'NASUS', 'TWITCH', 'IVERN', 'KARMA', 'SWAIN', 'NUNU', 'URGOT', 'NAMI', 'ANNIE', 'BRAUM', 'ELISE', 'VARUS', 'GNAR', 'LEONA', 'IRELIA', 'CORKI', 'AZIR', 'JAYCE', 'ZERI', 'KENNEN', 'RIVEN', 'SYNDRA', 'GWEN', 'RAMMUS', 'AHRI']);
 let result= '';
 const DATUM = Math.round(Date.now()/(1000*60*60*24))-19085;
@@ -123,7 +123,7 @@ async function colorChange(current_row, color_code, current_word){
         await delay(500)
         document.getElementById('win_layer').style.display = 'block'; 
         document.getElementById('win_layer').style.backgroundColor = GRAY;
-        document.getElementById('win_layer').innerHTML = RESULT;
+        document.getElementById('win_layer').innerHTML = result;
         lose=true;    
         copyStringToClipboard(createYourTry());       
     }
