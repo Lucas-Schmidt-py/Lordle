@@ -25,16 +25,16 @@ function wordInput (letter){
                 let color_code = compareWords(current_word, result);
                 colorChange(row, color_code, current_word);
                 collumn = 0;
-                row += 1;     
+                row += 1;
                 current_word= "";
             }
             else{
-                let all_tiles = document.querySelectorAll('game-tile'); 
+                let all_tiles = document.querySelectorAll('game-tile');
                 for (let i = 0;i<WORD_LENGTH;i++){
-                    let current_tile = all_tiles[row*WORD_LENGTH+i]  
+                    let current_tile = all_tiles[row*WORD_LENGTH+i];
                     current_tile.style.animation='none';
                     void current_tile.offsetWidth;
-                    current_tile.style.animation= 'shake-horizontal .5s cubic-bezier(.455,.03,.515,.955) both';                
+                    current_tile.style.animation= 'shake-horizontal .5s cubic-bezier(.455,.03,.515,.955) both';
                 }
             }
         }else{
@@ -42,7 +42,7 @@ function wordInput (letter){
                 current_word += letter;
                 let all_tiles = document.querySelectorAll('game-tile');
                 all_tiles[row*WORD_LENGTH+collumn].innerHTML = letter;
-                all_tiles[row*WORD_LENGTH+collumn].style.border = '2px solid #878A8C'
+                all_tiles[row*WORD_LENGTH+collumn].style.border = '2px solid #878A8C';
                 all_tiles[row*WORD_LENGTH+collumn].style.animation = 'highlight 200ms ease 0s 1 normal forwards';
                 collumn += 1;
             }
@@ -56,7 +56,7 @@ function wordDes(){
         current_word = current_word.slice(0, -1);
         let all_tiles = document.querySelectorAll('game-tile');
         all_tiles[row*WORD_LENGTH+collumn].innerHTML = "";
-        all_tiles[row*WORD_LENGTH+collumn].style.border = '2px solid #D3D6DA'
+        all_tiles[row*WORD_LENGTH+collumn].style.border = '2px solid #D3D6DA';
         all_tiles[row*WORD_LENGTH+collumn].style.animation = '';        
     }
 }
