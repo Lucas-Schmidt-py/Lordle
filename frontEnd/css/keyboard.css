@@ -22,6 +22,7 @@ body * {
     font-size: 15px;
     text-align: center;
     padding-top: 21px;
+    user-select: none;
 }
 
 .Spacer{

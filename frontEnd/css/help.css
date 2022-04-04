@@ -29,20 +29,36 @@
      }
 
   .help_text{
-    font-size: 2vh;
+    text-align: justify;
+    font-size: 1.7vh;
     color: rgb(0, 0, 0);
     padding: 10px;
+    padding-left: 18px;
+    margin-right: 50px;
   }
 
   #help_close{
+    font-size: large;
+    font-weight: 900;
+    color: #878A8C;
     width: 20px;
     position: fixed;
     text-align: center;
-    border-color: rgb(201, 201, 201);
-    left: 48vh;
-    top: 0;
+    border: none;
+    left: 46vh;
+    top: 10px;
     background-color: white;
     padding: 0;
+  }
+
+  #help_header{
+    text-align: center;
+    font-size: larger;
+    color: black;
+    font-weight: bolder;
+    position: relative;
+    padding-top: 15px;
+    padding-bottom: 20px;
   }
 
 @keyframes slide-in-top{0%{transform:translateY(-100px);opacity:0}100%{transform:translateY(0);opacity:1}}

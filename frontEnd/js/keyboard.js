@@ -2,13 +2,13 @@ document.addEventListener('keydown', function(event){
     if(event.keyCode > 64 && event.keyCode < 91){
         let letter = event.key.toLocaleUpperCase();
         wordInput(letter);
-        highlightKey(letter);
+        //highlightKey(letter);
     }else if(event.keyCode===46 || event.keyCode===8){
         wordDes();
-        highlightKey('BACKSPACE')
+        //highlightKey('BACKSPACE')
     }else if(event.keyCode===13){
         wordInput('ENTER');
-        highlightKey('ENTER')
+        //highlightKey('ENTER')
     }
 });
  

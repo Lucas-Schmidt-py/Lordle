@@ -19,6 +19,7 @@ game-tile{
     text-align: center;
     padding-top: 20%;
     background-color: white;
+    user-select: none;
 }
 
 .invisible{

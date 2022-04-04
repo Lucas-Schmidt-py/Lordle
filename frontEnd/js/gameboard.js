@@ -7,7 +7,7 @@ const WORD_LENGTH = 6;
 const ROW_COUNT = 5;
 const CHAMP_SET = new Set(['DRAVEN', 'TALON', 'SORAKA', 'JARVAN', 'SONA', 'RENGAR', 'VEIGAR', 'RAKAN', 'RYZE', 'KAYN', 'AKSHAN', 'RENATA', 'ANIVIA', 'SHACO', 'AMUMU', 'RUMBLE', 'VAYNE', 'ZIGGS', 'BARD', 'LULU', 'TAHM', 'PYKE', 'ORNN', 'EKKO', 'WUKONG', 'KLED', 'YONE', 'XERATH', 'SIVIR', 'MAOKAI', 'DIANA', 'JHIN', 'AKALI', 'THRESH', 'GALIO', 'QUINN', 'DARIUS', 'ZILEAN', 'MUNDO', 'LILLIA', 'ILLAOI', 'RELL', 'SENNA', 'XAYAH', 'GRAGAS', 'EZREAL', 'SINGED', 'AATROX', 'TARIC', 'GRAVES', 'VIEGO', 'SHEN', 'KAYLE', 'ASHE', 'BRAND', 'GAREN', 'LUCIAN', 'TEEMO', 'POPPY', 'SETT', 'FIORA', 'JINX', 'JANNA', 'FIZZ', 'SION', 'QIYANA', 'SAMIRA', 'NEEKO', 'YUUMI', 'YORICK', 'OLAF', 'YASUO', 'SYLAS', 'UDYR', 'VIKTOR', 'NASUS', 'TWITCH', 'IVERN', 'KARMA', 'SWAIN', 'NUNU', 'URGOT', 'NAMI', 'ANNIE', 'BRAUM', 'ELISE', 'VARUS', 'GNAR', 'LEONA', 'IRELIA', 'CORKI', 'AZIR', 'JAYCE', 'ZERI', 'KENNEN', 'RIVEN', 'SYNDRA', 'GWEN', 'RAMMUS', 'AHRI']);
 let result= '';
-const DATUM = Math.round(Date.now()/(1000*60*60*24))-19085;
+const DATUM = Math.round(Date.now()/(1000*60*60*24))-19087;
 
 function createResult(){
     if(DATUM<=100){
@@ -117,6 +117,7 @@ async function colorChange(current_row, color_code, current_word){
         document.getElementById('win_layer').style.display = 'block';
         throwConfetti();  
         copyStringToClipboard(createYourTry()); 
+        showCopied();
     }else if(current_row+1===ROW_COUNT){
         board_access = false; 
         let GRAY = 'rgb(120, 124, 126)';
@@ -125,8 +126,10 @@ async function colorChange(current_row, color_code, current_word){
         document.getElementById('win_layer').style.backgroundColor = GRAY;
         document.getElementById('win_layer').innerHTML = result;
         lose=true;    
-        copyStringToClipboard(createYourTry());       
+        copyStringToClipboard(createYourTry());  
+        showCopied();     
     }
+
 }
 
 async function colorGameboard(current_row, color_code){
@@ -246,7 +249,7 @@ function createYourTry(){
     }else{
         res=row;
     }
-    my_Try = "Lordle " +DATUM+ " "+res+ "/" +ROW_COUNT+"\n\n";
+    my_Try = "Lordle " +DATUM+ " "+res+ "/" +ROW_COUNT;
     return my_Try;
 }
 
@@ -281,3 +284,10 @@ function copyStringToClipboard (str) {
     document.body.removeChild(el);
  }
 
+async function showCopied(){
+    let notice = document.getElementById('clipboard_notice');
+    notice.style.display = 'block';
+    notice.style.animation = 'highlight 200ms ease 0s 1 normal forwards';
+    await(delay(1500));
+    notice.style.animation = 'notice_exit 500ms ease 0s 1 normal forwards';
+}

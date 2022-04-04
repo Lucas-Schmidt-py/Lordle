@@ -12,15 +12,18 @@
 }
 
 #Help{    
-    border-color: #ccc;
+    border: 2.9px solid black;
+    border-radius: 50px;
     background-color: white;
     height: 30px;
     position: absolute;
-    right: 6px ;
+    right: 18px ;
     top: 0.5vh;
-    font-size: 25px;
+    font-size: 15px;
+    font-weight: bold;
     line-height:1px;
 }
+
 hr { 
     display: block; 
     height: 1px;
